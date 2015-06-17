@@ -7,7 +7,6 @@
   .info-div {
     margin: 0 0 2%;
     height: 30rem;
-
   }
 
   .info-div-text {
@@ -27,6 +26,10 @@
     width: 100%;
     height: 100%;
     padding: 10% 5%;
+
+    h2 {
+      font-size: 5rem;
+    }
   }
 
   .pic-12-div {
@@ -43,6 +46,10 @@
     height: 40rem;
     background-color: rgba(0, 0, 0, .4);
     width: 100%;
+
+    a {
+      color: white;
+    }
   }
 
   .pic-3-div {
@@ -54,7 +61,6 @@
     height: 40rem;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: bottom;
 
     h2 {
       font-size: 5rem;
@@ -62,23 +68,27 @@
   }
 
   #sign-up {
-    background-image: url('mcyo-orchestra.jpg');
+    background-image: url('tommies-nor.jpg');
+    background-position: bottom;
   }
 
   #sign-up-band {
-    background-image: url('mcyo-orchestra.jpg');
+    background-image: url('geek-jam-bcn-14.jpg');
+    background-position: center;
   }
 
   #check-band {
-    background-image: url('mcyo-orchestra.jpg');
+    background-image: url('lipscomb-nor.jpg');
   }
 
   #check-local-band {
-      background-image: url('mcyo-orchestra.jpg');
-    }
+    background-image: url('guitars.jpg');
+    background-position: center;
+  }
 
   #find-jam {
-    background-image: url('mcyo-orchestra.jpg');
+    background-image: url('tommy-desk.jpg');
+    background-position: center;
   }
 
   #find-jam-sessions {
