@@ -1,0 +1,9 @@
+%div(class='container-fluid user-session-new')
+
+  - content_for(:page_title) do
+    %h1 Sign In
+  = simple_form_for @user, url: user_session_path do |f|
+    = f.input :email
+    = f.input :password
+    %div(class='actions')
+      = f.submit "Sign In" , class: 'btn btn-large btn-primary'

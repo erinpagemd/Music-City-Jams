@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     else
       flash.alert = "Please fix the errors below to continue."
       render :new
+    end
   end
 
   def update
