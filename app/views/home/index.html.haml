@@ -1,4 +1,63 @@
-%div(class='container-fluid')
-  %h1 Welcome to Music City Jams!
-
-  %p Where you can get the latest jam session information in Nashville
+.container-fluid.home
+  .main-div
+    .row
+      %h1 Welcome to Music City Jams!
+      %p Where you can get the latest jam session information in Nashville
+    .row
+      .col-md-10.col-md-offset-2
+        .row
+          #sign-up.pic-3-div.col-md-3
+            .pic-3-text
+              %h2
+                %a(href='#sign-up-band') Sign up your band
+          #check-band.pic-3-div.col-md-3
+            .pic-3-text
+              %h2
+                %a(href='#check-local-band') Check out local bands
+          #find-jam.pic-3-div.col-md-3
+            .pic-3-text
+              %h2
+                %a(href='#find-jam-sessions') Find jam sessions
+  #sign-up-band.container-fluid.pic-12-div
+    .pic-12-text
+      %h2 you can make a band page
+      %button.btn.btn-default Get Started
+  .container-fluid
+    .info-div
+      .col-md-2
+      .col-md-4
+        .info-div-text
+          %h3 and list sets you will play
+      .col-md-4
+        .info-div-text
+          %h3 build a fanbase
+      .col-md-2
+  #check-local-band.container-fluid.pic-12-div
+    .pic-12-text
+      %h2 you can browse through local band pages
+      %button.btn.btn-default Get Started
+  .container-fluid
+    .info-div
+      .col-md-2
+      .col-md-4
+        .info-div-text
+          %h3 see what is on their band page
+      .col-md-4
+        .info-div-text
+          %h3 look at shows they have coming up
+          %h4 keep up with your favorite band
+      .col-md-2
+  #find-jam-sessions.container-fluid.pic-12-div
+    .pic-12-text
+      %h2 you can find local jam sessions in nashville
+      %button.btn.btn-default Get Started
+  .container-fluid
+    .info-div
+      .col-md-2
+      .col-md-4
+        .info-div-text
+          %h3 see where bands are playing
+      .col-md-4
+        .info-div-text
+          %h3 and then actually go to a jam session! whoa!
+      .col-md-2
