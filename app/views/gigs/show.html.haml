@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @gig.name
+%p
+  %b Location:
+  = @gig.location
+%p
+  %b Date:
+  = @gig.date
+%p
+  %b Description:
+  = @gig.description
+%p
+  %b Image:
+  = @gig.image
+
+= link_to 'Edit', edit_gig_path(@gig)
+\|
+= link_to 'Back', gigs_path

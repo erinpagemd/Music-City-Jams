@@ -1,0 +1,29 @@
+%h1 Listing gigs
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Location
+      %th Date
+      %th Description
+      %th Image
+      %th
+      %th
+      %th
+
+  %tbody
+    - @gigs.each do |gig|
+      %tr
+        %td= gig.name
+        %td= gig.location
+        %td= gig.date
+        %td= gig.description
+        %td= gig.image
+        %td= link_to 'Show', gig
+        %td= link_to 'Edit', edit_gig_path(gig)
+        %td= link_to 'Destroy', gig, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Gig', new_gig_path
