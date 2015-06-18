@@ -1,7 +1,20 @@
-%h1 Editing user
+.container-fluid.user-edit
+  .row
+    %h1= @user.name
+  .row
+    .col-md-3
+    .col-md-6
+      .container-fluid.user-form
+        = simple_form_for @user, url: @user do |f|
+          = f.error_notification
 
-= render 'form'
-
-= link_to 'Show', @user
-\|
-= link_to 'Back', users_path
+          .row.form-row
+            .form-inputs
+              = f.input :email
+            .form-actions
+              = f.button :submit, class: 'btn btn-large btn-primary'
+    .col-md-3
+  .row
+    = link_to 'Show', @user
+    \|
+    = link_to 'Back', users_path

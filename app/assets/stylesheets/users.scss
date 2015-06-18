@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/////////////////// EDIT ////////////////////
+.user-edit {
+  h1 {
+    text-align: center;
+    padding: 0 0 2%;
+    font-size: 5rem;
+  }
+
+}
+
 
 /////////////////// SHOW ////////////////////
 .user-show {
@@ -59,6 +69,11 @@
    width: 100%;
  }
 
+ .form-row {
+     margin: 3% 5%;
+   }
+
+
 }
 
 /////////////////// NEW ////////////////////
@@ -74,9 +89,5 @@
     text-align: center;
     padding: 0 0 2%;
     font-size: 5rem;
-  }
-
-  .form-row {
-    margin: 3% 5%;
   }
 }
