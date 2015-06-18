@@ -1,10 +1,59 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/////////////////// SHOW ////////////////////
+.user-show {
+  text-align: center;
+
+  h3 a {
+    color: white;
+  }
+
+  .user-title {
+    background-color: rgba(0, 0, 0, .4);
+    color: white;
+
+  }
+}
+
+/////////////////// INDEX ////////////////////
+.users-index {
+  text-align: center;
+  padding: 1%;
+  background-image: url('kit-guitar.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+
+  h1 {
+    font-size: 5rem;
+  }
+
+  h2 {
+    font-size: 4rem;
+  }
+
+  .users-each {
+    display: inline-block;
+    margin: 2%;
+    background-color: rgba(0, 0, 0, .4);
+    padding: 5%;
+    height: 30rem;
+
+    a {
+      color: white;
+    }
+
+  }
+}
+
+/////////////////// FORM ////////////////////
 .user-form {
- background-color: lightgrey;
+ background-color: rgba(0, 0, 0, .4);
  padding: 5%;
- margin: 5% 20%;
 
  .btn {
    width: 100%;
@@ -12,8 +61,22 @@
 
 }
 
+/////////////////// NEW ////////////////////
 .user-new {
+  background-image: url('pedals-nor.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+
+
   h1 {
     text-align: center;
+    padding: 0 0 2%;
+    font-size: 5rem;
+  }
+
+  .form-row {
+    margin: 3% 5%;
   }
 }

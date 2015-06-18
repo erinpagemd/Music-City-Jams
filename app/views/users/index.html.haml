@@ -1,23 +1,11 @@
-%h1 Listing users
+.container-fluid.users-index
+  %h1 Music City Bands
+  = link_to 'Sign Up Your Band', new_user_path
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Email
-      %th
-      %th
-      %th
 
-  %tbody
+  .users-all.container-fluid
+
     - @users.each do |user|
-      %tr
-        %td= user.name
-        %td= user.email
-        %td= link_to 'Show', user
-        %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New User', new_user_path
+      .users-each
+        %h2= user.name
+        %button.btn.btn-warning= link_to 'Find out more about this band', user

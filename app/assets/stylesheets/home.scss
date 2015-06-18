@@ -27,8 +27,19 @@
     height: 100%;
     padding: 10% 5%;
 
+    a {
+      color: white;
+    }
+
     h2 {
       font-size: 5rem;
+    }
+
+    .btn {
+      padding: 2% 10%;
+      margin-top: 5%;
+      border-radius: 40px;
+      font-size: 2rem;
     }
   }
 

@@ -1,7 +1,11 @@
 .container-fluid.user-new
+  .row
+    %h1 Sign up your band
+  .row
+    .col-md-3
+    .col-md-6
+      = render 'form'
+    .col-md-3
 
-  %h1 Sign up your band
-
-  = render 'form'
-
-  = link_to 'Back to All Bands', users_path
+  .row
+    = link_to 'Back to All Bands', users_path

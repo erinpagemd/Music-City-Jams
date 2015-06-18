@@ -1,14 +1,17 @@
-%p#notice= notice
-
-%div(class='container-fluid')
-
-  %p
-    %b Name:
-    = @user.name
-  %p
-    %b Email:
-    = @user.email
-
-  = link_to 'Edit', edit_user_path(@user)
-  \|
-  = link_to 'Back', users_path
+.container-fluid.user-show
+  %p#notice= notice
+  .row
+    .col-md-2
+    .col-md-8.user-title
+      .row
+        %h1= @user.name
+        %p
+          %b Contact via Email:
+          = @user.email
+      .row
+        %h3= link_to "Add a new show", new_gig_path
+    .col-md-2
+  .row
+    = link_to 'Edit', edit_user_path(@user)
+    \|
+    = link_to 'Back to All Bands', users_path

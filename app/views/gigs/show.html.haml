@@ -1,21 +1,24 @@
-%p#notice= notice
+.container-fluid.gig-show
+  %p#notice= notice
 
-%p
-  %b Name:
-  = @gig.name
-%p
-  %b Location:
-  = @gig.location
-%p
-  %b Date:
-  = @gig.date
-%p
-  %b Description:
-  = @gig.description
-%p
-  %b Image:
-  = @gig.image
+  .row
+    .col-md-3
+    .col-md-6.gig-info
+      .row
+        %img(src="#{@gig.image}")
 
-= link_to 'Edit', edit_gig_path(@gig)
-\|
-= link_to 'Back', gigs_path
+        %h1= @gig.name
+        = link_to 'Edit this Gig', edit_gig_path(@gig)
+
+        %h2
+          %b Location:
+          = @gig.location
+        %h2
+          %b
+          = @gig.date
+        %h3
+          %b
+          = @gig.description
+    .col-md-3
+  .row
+    = link_to 'View All My Gigs', gigs_path

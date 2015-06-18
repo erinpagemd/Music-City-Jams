@@ -1,12 +1,13 @@
-= simple_form_for(@gig) do |f|
-  = f.error_notification
+.container-fluid.gig-form
+  = simple_form_for @gig do |f|
+    = f.error_notification
 
-  .form-inputs
-    = f.input :name
-    = f.input :location
-    = f.input :date
-    = f.input :description
-    = f.input :image
-
-  .form-actions
-    = f.button :submit
+    .row.form-row
+      .form-inputs
+        = f.input :name
+        = f.input :location
+        = f.input :date
+        = f.input :description
+        = f.input :image
+      .form-actions
+        = f.button :submit, class: 'btn btn-large btn-primary'
