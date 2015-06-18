@@ -6,9 +6,10 @@
     .col-md-6.gig-info
       .row
         %img(src="#{@gig.image}")
-
+        %h1= @gig.user.name
         %h1= @gig.name
         = link_to 'Edit this Gig', edit_gig_path(@gig)
+        = link_to 'Delete this Gig', gig_path, method: :delete
 
         %h2
           %b Location:

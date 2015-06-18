@@ -10,6 +10,7 @@ class GigsController < ApplicationController
   # GET /gigs/1
   # GET /gigs/1.json
   def show
+    @users = User.all
   end
 
   # GET /gigs/new
@@ -69,6 +70,6 @@ class GigsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gig_params
-      params.require(:gig).permit(:name, :location, :date, :description, :image)
+      params.require(:gig).permit(:name, :location, :date, :description, :image, :user_id)
     end
 end

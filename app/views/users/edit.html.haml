@@ -7,9 +7,9 @@
       .container-fluid.user-form
         = simple_form_for @user, url: @user do |f|
           = f.error_notification
-
           .row.form-row
             .form-inputs
+              = f.input :name
               = f.input :email
             .form-actions
               = f.button :submit, class: 'btn btn-large btn-primary'

@@ -2,7 +2,10 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
 
+  has_many :gigs
+
   authenticates_with_sorcery!
+
 
   validates :email, :name, presence: true
   validates :name, length: {minimum: 3}
