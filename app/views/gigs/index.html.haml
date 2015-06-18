@@ -7,7 +7,7 @@
       .gigs-each
         %img(src="#{gig.image}")
         .gigs-text
-          -# %h2= gig.user.name
+          %h2= gig.user.name
           %h2= gig.name
           %h3= gig.location
           %h3= gig.date.to_s(:long)
