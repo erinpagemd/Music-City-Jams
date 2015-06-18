@@ -1,10 +1,14 @@
 .container-fluid.user-session-new
-  = simple_form_for @user, url: user_session_path do |f|
-    = f.error_notification
-
-    .form-inputs
-      = f.input :email
-      = f.input :password
-
-    .form-actions
-      = f.submit "Sign In" , class: 'btn btn-large btn-primary'
+  .row
+    %h1 Sign in your band
+  .row
+    .col-md-3
+    .col-md-6.user-session-form
+      = simple_form_for @user, url: user_session_path do |f|
+        = f.error_notification
+        .form-inputs
+          = f.input :email
+          = f.input :password
+        .form-actions
+          = f.submit "Sign In" , class: 'btn btn-large btn-primary'
+    .col-md-3

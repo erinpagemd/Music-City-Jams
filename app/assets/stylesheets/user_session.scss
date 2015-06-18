@@ -2,9 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .user-session-new {
-  background-color: lightgrey;
-  padding: 5%;
-  margin: 5% 20%;
+  background-image: url('kit-guitar.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  padding: 5% 0;
+
+  .user-session-form {
+    background-color: rgba(0, 0, 0, .4);
+    padding: 5%;
+    margin: 5% 0;
+  }
+
+  h1 {
+    text-align: center;
+  }
 
   .btn {
     width: 100%;

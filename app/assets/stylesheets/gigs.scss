@@ -3,6 +3,30 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+/////////////////// INDEX ////////////////////
+.gigs-index {
+  text-align: center;
+  color: white;
+  .gigs-each {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, .4);
+    width: 300px;
+    height: 500px;
+    margin: 1%;
+  }
+
+  .gigs-text {
+    height: 300px;
+  }
+
+  img {
+    width: 300px;
+    height: 200px;
+
+  }
+}
+
+
 /////////////////// NEW ////////////////////
 .gig-new {
   background-image: url('pedals-nor.jpg');

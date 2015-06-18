@@ -15,7 +15,7 @@
           = @gig.location
         %h2
           %b
-          = @gig.date
+          = @gig.date.to_s(:long)
         %h3
           %b
           = @gig.description

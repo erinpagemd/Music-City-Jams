@@ -24,11 +24,12 @@
             %li= link_to "Home", root_path
             - if !logged_in?
               - unless controller_name == "users"
-                %li= link_to "Sign Up", new_user_path
+                %li= link_to "Band Sign Up", new_user_path
               - unless controller_name == 'user_sessions'
-                %li= link_to "Sign In", new_user_session_path
+                %li= link_to "Band Sign In", new_user_session_path
             - else
               %li= link_to "Sign Out", user_session_path, method: :delete
+              %li= link_to "My Band Page", @user
     %p.notice= notice
     %p.alert= alert
     = yield

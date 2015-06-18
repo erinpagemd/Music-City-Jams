@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resource :user_session, only: [:new, :create, :destroy]
   resources :gigs
-  resources :users
+  resources :users do
+    resources :gigs
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
