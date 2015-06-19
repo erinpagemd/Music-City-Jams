@@ -18,6 +18,13 @@
     margin: 3%;
   }
 
+  .gigs-each-btn {
+    width: 50%;
+    padding: 2%;
+    margin: 2%;
+    border-radius: 40px;
+  }
+
   .gigs-each-header {
     background-color: black;
     color: white;
@@ -26,12 +33,9 @@
     padding: 1%;
   }
 
-  .gigs-text {
-  }
-
   img {
     width: 100%;
-
+    height: 100%;
   }
 }
 
