@@ -1,18 +1,26 @@
 .containr-fluid.gigs-index
-  %h1 Listing gigs
+  .gigs-index-title
+    %h1 All the Gigs
+    = link_to 'New Gig', new_gig_path
 
   .gigs-all.container-fluid
-
-    - @gigs.each do |gig|
-      .gigs-each
-        %img(src="#{gig.image}")
-        .gigs-text
-          %h2= gig.user.name
-          %h2= gig.name
-          %h3= gig.location
-          %h3= gig.date.to_s(:long)
-          %h4= gig.description
-          = link_to 'Show', gig
-
-  .containr-fluid
-    = link_to 'New Gig', new_gig_path
+    .row
+      .col-md-1
+      .col-md-10
+        - @gigs.each do |gig|
+          .col-md-4
+            .gigs-each
+              .gigs-each-header
+                %h3= gig.date.to_s(:long)
+              .row
+                %h2= gig.name
+              .row
+                .col-md-6
+                  %img(src="#{gig.image}")
+                .col-md-6
+                  %h3= gig.location
+              .gigs-text
+                %h2= gig.user.name
+                %h4= gig.description
+                = link_to 'Show', gig
+      .col-md-1

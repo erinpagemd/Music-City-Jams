@@ -6,22 +6,31 @@
 /////////////////// INDEX ////////////////////
 .gigs-index {
   text-align: center;
-  color: white;
+  background-color: lightgrey;
+  .gigs-index-title {
+    margin: 2%;
+  }
+
   .gigs-each {
-    display: inline-block;
-    background-color: rgba(0, 0, 0, .4);
-    width: 300px;
-    height: 500px;
-    margin: 1%;
+    background-color: white;
+    width: 400px;
+    height: 400px;
+    margin: 3%;
+  }
+
+  .gigs-each-header {
+    background-color: black;
+    color: white;
+    height: 50px;
+    text-align: right;
+    padding: 1%;
   }
 
   .gigs-text {
-    height: 300px;
   }
 
   img {
-    width: 300px;
-    height: 200px;
+    width: 100%;
 
   }
 }
