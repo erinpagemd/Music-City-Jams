@@ -1,0 +1,23 @@
+%h1 Listing fans
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th
+      %th
+      %th
+
+  %tbody
+    - @fans.each do |fan|
+      %tr
+        %td= fan.name
+        %td= fan.email
+        %td= link_to 'Show', fan
+        %td= link_to 'Edit', edit_fan_path(fan)
+        %td= link_to 'Destroy', fan, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Fan', new_fan_path
