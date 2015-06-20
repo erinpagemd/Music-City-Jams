@@ -1,9 +1,11 @@
-= simple_form_for(@fan) do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.input :name
-    = f.input :email
-
-  .form-actions
-    = f.button :submit
+.container-fluid.fan-form
+  = simple_form_for @fan, url: @fan do |f|
+    = f.error_notification
+    .row.form-row
+      .form-inputs
+        = f.input :name
+        = f.input :email
+        = f.input :password
+        = f.input :password_confirmation
+      .form-actions
+        = f.button :submit, class: 'btn btn-large btn-primary'
