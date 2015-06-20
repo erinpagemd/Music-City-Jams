@@ -5,7 +5,7 @@
     %h1= "#{@gig.user.name} presents: #{@gig.name}"
     - if @gig.user == current_user
       = link_to 'Edit this Gig', edit_gig_path(@gig)
-      = link_to 'Delete this Gig', gig_path, method: :delete
+      = link_to 'Delete this Gig', gig_path, method: :delete, data: {confirm: "Are you sure?"}
   .row.gig-info
     .col-md-4
       %img(src="#{@gig.image}")
@@ -18,3 +18,5 @@
         %h3= @gig.description
   .row
     = link_to 'View All Gigs', gigs_path
+    |
+    = link_to 'More about this band', user_path(@gig.user)
