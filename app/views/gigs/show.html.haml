@@ -3,7 +3,7 @@
 
   .row.gig-title
     %h1= "#{@gig.user.name} presents: #{@gig.name}"
-    - if logged_in?
+    - if @gig.user == current_user
       = link_to 'Edit this Gig', edit_gig_path(@gig)
       = link_to 'Delete this Gig', gig_path, method: :delete
   .row.gig-info

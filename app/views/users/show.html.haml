@@ -5,7 +5,7 @@
     %p
       %b Contact via Email:
       = @user.email
-    - if logged_in?
+    - if @user == current_user
       .row
         %h3= link_to "Add a new show", new_gig_path
 
@@ -26,6 +26,6 @@
             = link_to "Find out more", gig, class: 'btn btn-primary'
     .col-md-2
       .row
-        - if logged_in?
+        - if @user == current_user
           = link_to 'Edit', edit_user_path(@user)
         = link_to 'Back to All Bands', users_path
