@@ -1,44 +1,38 @@
 class FansController < ApplicationController
   before_action :set_fan, only: [:show, :edit, :update, :destroy]
 
-  # GET /fans
-  # GET /fans.json
   def index
     @fans = Fan.all
   end
 
-  # GET /fans/1
-  # GET /fans/1.json
   def show
   end
 
-  # GET /fans/new
   def new
     @fan = Fan.new
   end
 
-  # GET /fans/1/edit
   def edit
-  end
-
-  # POST /fans
-  # POST /fans.json
-  def create
-    @fan = Fan.new(fan_params)
-
-    respond_to do |format|
-      if @fan.save
-        format.html { redirect_to @fan, notice: 'Fan was successfully created.' }
-        format.json { render :show, status: :created, location: @fan }
-      else
-        format.html { render :new }
-        format.json { render json: @fan.errors, status: :unprocessable_entity }
-      end
+    if !current_user
+      redirect_to root_path
+    else
+      @fan = current_user
     end
   end
 
-  # PATCH/PUT /fans/1
-  # PATCH/PUT /fans/1.json
+  def create
+    @fan = Fan.new(fan_params)
+
+    if @fan.save
+      auto_login(@fan)
+      redirect_to fan_path(@fan), notice: "Welcome, #{@fan.name}"
+    else
+      flash.alert = 'Please fix the errors below to continue.'
+      render :new
+    end
+    end
+  end
+
   def update
     respond_to do |format|
       if @fan.update(fan_params)
@@ -51,8 +45,6 @@ class FansController < ApplicationController
     end
   end
 
-  # DELETE /fans/1
-  # DELETE /fans/1.json
   def destroy
     @fan.destroy
     respond_to do |format|
@@ -62,13 +54,11 @@ class FansController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_fan
-      @fan = Fan.find(params[:id])
+      @fan = Fan.friendly.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def fan_params
-      params.require(:fan).permit(:name, :email)
+      params.require(:fan).permit(:name, :email, :password, :password_confirmation)
     end
 end
