@@ -2,7 +2,8 @@
   .gigs-index-title
     .gigs-title-text
       %h1 All the Gigs
-      = link_to 'New Gig', new_gig_path
+      - if logged_in?
+        = link_to 'New Gig', new_gig_path
 
   .gigs-all.container-fluid
     .row
