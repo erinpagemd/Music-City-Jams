@@ -29,8 +29,11 @@
                 %li= link_to "Band Sign In", new_user_session_path
               - unless controller_name == 'fans'
                 %li= link_to "Fan Sign Up", new_fan_path
+              - unless controller_name == 'fan_sessions'
+                %li= link_to "Fan Sign In", new_fan_session_path
             - else
               %li= link_to "Band Sign Out", user_session_path, method: :delete
+              %li= link_to "Fan Sign Out", fan_session_path, method: :delete
     %p.notice= notice
     %p.alert= alert
     = yield

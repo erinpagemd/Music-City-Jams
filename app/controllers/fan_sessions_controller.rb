@@ -12,4 +12,9 @@ class FanSessionsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    logout
+    redirect_to root_path, notice: "You have been signed out."
+  end
 end
