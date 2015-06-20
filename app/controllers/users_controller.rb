@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @gigs = @user.gigs
   end
 
   def new

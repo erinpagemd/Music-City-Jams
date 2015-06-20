@@ -9,11 +9,16 @@
   background-color: lightgrey;
   .gigs-index-title {
     margin: 2% 0;
-    background-image: url('guitars.jpg');
+    background-image: url('equipment.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     color: white;
+
+  }
+
+  .gigs-image {
+    background-color: darkgrey;
   }
 
   .gigs-title-text {
@@ -82,22 +87,27 @@
 }
 
 /////////////////// SHOW ////////////////////
-
-
 .gig-show {
   text-align: center;
+  background-color: lightgrey;
+
+  img {
+    width: 100%;
+  }
+
+
+  .gig-title {
+    background-color: darkgrey;
+    margin-bottom: 5%;
+  }
 
   a {
     color: white;
   }
 
   .gig-info {
-    background-color: rgba(0, 0, 0, .4);
-    color: white;
+    background-color: white;
 
-    img {
-      width: 100%;
-    }
 
   }
 }

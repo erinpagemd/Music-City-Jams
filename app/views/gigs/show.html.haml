@@ -1,25 +1,24 @@
 .container-fluid.gig-show
   %p#notice= notice
 
-  .row
-    .col-md-3
-    .col-md-6.gig-info
+  .row.gig-title
+    %h1= "#{@gig.user.name} presents: #{@gig.name}"
+    = link_to 'Edit this Gig', edit_gig_path(@gig)
+    = link_to 'Delete this Gig', gig_path, method: :delete
+  .row.gig-info
+    .col-md-4
+      %img(src="#{@gig.image}")
+    .col-md-8
       .row
-        %img(src="#{@gig.image}")
-        %h1= @gig.user.name
-        %h1= @gig.name
-        = link_to 'Edit this Gig', edit_gig_path(@gig)
-        = link_to 'Delete this Gig', gig_path, method: :delete
-
         %h2
           %b Location:
           = @gig.location
         %h2
           %b
           = @gig.date.to_s(:long)
+      .row
         %h3
           %b
           = @gig.description
-    .col-md-3
   .row
-    = link_to 'View All My Gigs', gigs_path
+    = link_to 'View All Gigs', gigs_path

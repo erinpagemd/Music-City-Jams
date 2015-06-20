@@ -1,22 +1,29 @@
 .container-fluid.user-show
   %p#notice= notice
+  .row.user-title
+    %h1= @user.name
+    %p
+      %b Contact via Email:
+      = @user.email
+    .row
+      %h3= link_to "Add a new show", new_gig_path
+
   .row
     .col-md-2
-    .col-md-8.user-title
-      .row
-        %h1= @user.name
-        %p
-          %b Contact via Email:
-          = @user.email
-      .row
-        %h3= link_to "Add a new show", new_gig_path
-      .row
-        %h2= link_to "Our shows", user_gigs_path(@user)
-
-
-
+    .col-md-8
+      - @gigs.each do |gig|
+        .each-gig
+          .col-md-10
+            .col-md-4
+              .row
+                %img(src="#{gig.image}")
+            .col-md-8.gig-text
+              %h2= gig.name
+              %p= gig.date.to_s(:long)
+          .col-md-2
+            = link_to "Find out more", gig, class: 'btn btn-primary'
     .col-md-2
-  .row
-    = link_to 'Edit', edit_user_path(@user)
-    \|
-    = link_to 'Back to All Bands', users_path
+      .row
+        = link_to 'Edit', edit_user_path(@user)
+        \|
+        = link_to 'Back to All Bands', users_path
