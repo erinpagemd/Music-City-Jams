@@ -1,0 +1,14 @@
+.container-fluid.fan-session-new
+  .row
+    %h1 Fan Sign In
+  .row
+    .col-md-3
+    .col-md-6.fan-session-form
+      = simple_form_for @fan, url: fan_session_path do |f|
+        =f.error_notification
+        .form-inputs
+          = f.input :email
+          = f.input :password
+        .form-actions
+          = f.submit "Sign In", class: 'btn btn-large btn-primary'
+    .col-md-3
