@@ -8,7 +8,7 @@
         = f.input :email, placeholder: "mary@aol.com"
         = f.input :password, placeholder: "supersecretpassword"
         = f.input :password_confirmation, placeholder: "supersecretpassword"
-        = f.label :role, :label => "Create a Band or Fan account"
+        = f.label :role, :label => "Create a Band or Fan account: "
         = f.collection_select :role, User::ROLES, :to_s, :humanize
       .form-actions
         = f.button :submit, class: 'btn btn-large btn-primary'
