@@ -15,6 +15,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if !current_user
+      redirect_to root_path
+    else
+      @user = current_user
+    end
   end
 
   def create
