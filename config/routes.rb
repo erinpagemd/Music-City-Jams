@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  get 'fan_sessions/new'
+
   get 'fan_session/new'
 
-  resources :fans
+  resource :fan_session, only: [:new, :create, :destroy]
   resource :user_session, only: [:new, :create, :destroy]
+  resources :fans
   resources :gigs
   resources :users do
     resources :gigs
