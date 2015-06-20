@@ -11,6 +11,9 @@
             .form-inputs
               = f.input :name
               = f.input :email
+              = f.label :role, :label => "Create a Band or Fan account? "
+              = f.collection_select :role, User::ROLES, :to_s, :humanize
+
             .form-actions
               = f.button :submit, class: 'btn btn-large btn-primary'
     .col-md-3

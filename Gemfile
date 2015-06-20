@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'bootstrap-sass'
+gem 'cancan'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'friendly_id'
 gem 'haml-rails'

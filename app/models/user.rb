@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  ROLES = %w[band fan]
+
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
 
