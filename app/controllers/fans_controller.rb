@@ -30,7 +30,6 @@ class FansController < ApplicationController
       flash.alert = 'Please fix the errors below to continue.'
       render :new
     end
-    end
   end
 
   def update
