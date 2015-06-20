@@ -19,6 +19,8 @@ class GigsController < ApplicationController
 
   def create
     @gig = Gig.new(gig_params)
+    @gig.user = current_user
+
 
     respond_to do |format|
       if @gig.save
