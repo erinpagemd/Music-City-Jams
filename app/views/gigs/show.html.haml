@@ -17,6 +17,10 @@
         %br
         %h3= @gig.description
   .row
+    = simple_form_for [@gig, Comment.new] do |f|
+      = f.input :body
+      = f.button :submit, "Publish Comment"
+  .row
     = link_to 'View All Gigs', gigs_path
     |
     = link_to 'More about this band', user_path(@gig.user)

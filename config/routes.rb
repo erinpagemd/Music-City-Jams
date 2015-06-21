@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  resources :comments
   resource :user_session, only: [:new, :create, :destroy]
-  resources :gigs
+  resources :comments
+  resources :gigs do
+    resources :comments
+  end
   resources :users do
     resources :gigs
+    resources :comments
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

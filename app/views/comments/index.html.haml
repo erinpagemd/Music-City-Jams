@@ -13,8 +13,6 @@
   %tbody
     - @comments.each do |comment|
       %tr
-        %td= comment.reference
-        %td= comment.reference
         %td= comment.body
         %td= link_to 'Show', comment
         %td= link_to 'Edit', edit_comment_path(comment)
