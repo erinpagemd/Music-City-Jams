@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @gig = Gig.find(params[:gig_id])
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     @comment.gig = @gig
