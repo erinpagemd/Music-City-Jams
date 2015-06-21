@@ -97,6 +97,23 @@
   text-align: center;
   background-color: lightgrey;
 
+  .each-comment {
+    margin: 2%;
+    background-color: white;
+  }
+
+  .btn {
+    padding: 2% 8%;
+    border-radius: 40px;
+  }
+
+  .comment-name {
+    padding: 2%;
+  }
+  .comment-body {
+    padding: 2%;
+  }
+
   img {
     width: 100%;
   }
