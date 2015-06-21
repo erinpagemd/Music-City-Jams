@@ -18,6 +18,24 @@
   text-align: center;
   background-color: grey;
 
+  .each-comment {
+    background-color: white;
+    margin: 2%;
+
+    img {
+      width: 100%;
+    }
+
+    .col-md-4 {
+      padding: 0;
+    }
+
+    .comment-gig-name {
+      background-color: black;
+      color: white;
+    }
+
+  }
 
   .user-title {
     background-color: rgba(0, 0, 0, .4);

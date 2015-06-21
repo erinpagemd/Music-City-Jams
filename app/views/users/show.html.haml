@@ -5,7 +5,7 @@
     %p
       %b Contact via Email:
       = @user.email
-    - if @user == current_user
+    - if @user == current_user && @user.role == 'band'
       .row
         %h3= link_to "Add a new show", new_gig_path
 
@@ -29,3 +29,24 @@
         - if @user == current_user
           = link_to 'Edit', edit_user_path(@user)
         = link_to 'Back to All Bands', users_path
+
+  - if @user == current_user && @user.role == 'fan'
+    .row
+      %h2 my comments
+    .row
+      .col-md-2
+      .col-md-8
+        - @user.comments.each do |comment|
+          .row.each-comment
+            .col-md-4
+              %img(src="#{comment.gig.image}")
+            .col-md-8
+              .row.comment-gig-name
+                %h3= comment.gig.name
+              .row
+                %span.timestamp= "#{time_ago_in_words(comment.created_at)} ago you said:"
+              .row
+                %h4= comment.body
+              - if @user == current_user
+                .row
+                  = link_to "Delete this comment", comment, :method => :delete, :data => { :confirm => "Are you sure?"}

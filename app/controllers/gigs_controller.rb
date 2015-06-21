@@ -3,6 +3,7 @@ class GigsController < ApplicationController
   before_action :require_login, except: [:index, :show]
 
   def index
+    load_user
     @gigs = Gig.all
   end
 
@@ -59,7 +60,7 @@ class GigsController < ApplicationController
     end
 
     def load_user
-      @user = User.find(params[:user_id])
+      @user = User.find(current_user)
     end
 
     def gig_params
