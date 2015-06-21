@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   friendly_id :name, use: [:slugged, :finders]
 
   has_many :gigs
+  has_many :comments
 
   authenticates_with_sorcery!
 

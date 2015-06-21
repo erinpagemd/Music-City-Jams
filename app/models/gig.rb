@@ -3,6 +3,7 @@ class Gig < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
 
+  has_many :comments
 
   delegate :name, to: :user, prefix: true
 
