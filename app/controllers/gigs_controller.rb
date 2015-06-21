@@ -8,6 +8,7 @@ class GigsController < ApplicationController
   end
 
   def show
+    @comments = @gig.comments
   end
 
   def new
