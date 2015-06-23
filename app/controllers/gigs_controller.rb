@@ -3,20 +3,35 @@ class GigsController < ApplicationController
 
   skip_before_action :require_login, only: skipped_actions
   skip_authorization_check :only => skipped_actions
-  load_and_authorize_resource except: [:index]
+  load_and_authorize_resource except: [:index, :today, :past, :upcoming]
 
 
   def index
-    @gigs = Gig.upcoming
+    @gigs = Gig.all
   end
 
-  Gig.valid_timelines.each do |timeline|
-    define_method timeline do
-      @gigs = Gig.public_send(timeline)
-
-      render 'index'
-    end
+  def today
+    @gigs = Gig.where('date = ?', Date.today)
+    render 'index'
   end
+
+  def past
+    @gigs = Gig.where('date < ?', Date.today)
+    render 'index'
+  end
+
+  def upcoming
+    @gigs = Gig.where('date >= ?', Date.today)
+    render 'index'
+  end
+
+  # Gig.valid_timelines.each do |timeline|
+  #   define_method timeline do
+  #     @gigs = Gig.public_send(timeline)
+  #
+  #     render 'index'
+  #   end
+  # end
 
   def show
     @comments = @gig.comments.all
