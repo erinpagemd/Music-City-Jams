@@ -5,6 +5,11 @@ class Ability
 
     if user.band?
       can :manage, Gig
+      can :manage, Comment
+    end
+
+    if user.fan?
+      can :manage, Comment
     end
     # Define abilities for the passed in user here. For example:
     #

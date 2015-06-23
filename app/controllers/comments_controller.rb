@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :require_login, except: [:index, :show]
+  load_and_authorize_resource
+
 
   def index
     @comments = Comment.all

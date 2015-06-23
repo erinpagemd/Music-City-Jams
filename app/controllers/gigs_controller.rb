@@ -1,6 +1,8 @@
 class GigsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
   load_and_authorize_resource
+  # skip_authorization_check
+
 
   def index
   end

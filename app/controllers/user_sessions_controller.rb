@@ -1,4 +1,7 @@
 class UserSessionsController < ApplicationController
+  skip_authorization_check
+  skip_before_action :require_login
+
   def new
     @user = User.new
   end

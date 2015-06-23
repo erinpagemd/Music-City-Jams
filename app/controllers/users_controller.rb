@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: [:index, :show, :new]
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  skip_authorization_check
+
 
   def index
     @users = User.where(role: 'band')
