@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'bootstrap-sass'
-gem 'cancan'
+gem 'cancancan'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'friendly_id'
 gem 'haml-rails'
@@ -22,6 +22,7 @@ group :development, :test do
   gem 'byebug'
   gem 'faker'
   gem 'fabrication'
+  gem 'pry'
   gem 'rspec-rails'
   gem 'spring'
   gem 'web-console', '~> 2.0'

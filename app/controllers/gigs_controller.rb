@@ -1,10 +1,8 @@
 class GigsController < ApplicationController
-  before_action :set_gig, only: [:show, :edit, :update, :destroy]
-  before_action :require_login, except: [:index, :show]
+  skip_before_action :require_login, only: [:index, :show]
+  load_and_authorize_resource
 
   def index
-    load_user
-    @gigs = Gig.all
   end
 
   def show
@@ -54,16 +52,9 @@ class GigsController < ApplicationController
     end
   end
 
-  private
-    def set_gig
-      @gig = Gig.find(params[:id])
-    end
 
-    def load_user
-      @user = User.find(current_user)
-    end
 
-    def gig_params
-      params.require(:gig).permit(:name, :location, :date, :description, :image, :user_id)
-    end
+  private def gig_params
+    params.require(:gig).permit(:name, :location, :date, :description, :image, :user_id)
+  end
 end

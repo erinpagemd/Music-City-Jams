@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
 
-    if user.role? :band
+    if user.band?
       can :manage, Gig
     end
     # Define abilities for the passed in user here. For example:
