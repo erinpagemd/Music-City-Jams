@@ -8,6 +8,14 @@
     - if @user == current_user && @user.role == 'band'
       .row
         %h3= link_to "Add a new show", new_gig_path
+    .row
+      - if @user == current_user
+        = link_to 'Edit', edit_user_path(@user)
+        |
+      = link_to 'All Bands', users_path
+      |
+      = link_to 'All Shows', gigs_path
+
 
 
   .row
@@ -25,10 +33,6 @@
           .col-md-2
             = link_to "Find out more", gig, class: 'btn btn-primary'
     .col-md-2
-      .row
-        - if @user == current_user
-          = link_to 'Edit', edit_user_path(@user)
-        = link_to 'Back to All Bands', users_path
 
   - if @user == current_user && @user.role == 'fan'
     .row
