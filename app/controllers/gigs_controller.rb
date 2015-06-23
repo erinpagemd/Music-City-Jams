@@ -1,14 +1,17 @@
 class GigsController < ApplicationController
+  before_filter :load_gig, except: [:index]
   skip_before_action :require_login, only: [:index, :show]
   load_and_authorize_resource
-  # skip_authorization_check
+  skip_authorization_check :only => [:index, :show]
+  skip_load_and_authorize_resource :only => [:index, :show]
 
 
   def index
+    @gigs = Gig.all
   end
 
   def show
-    @comments = @gig.comments
+    @comments = @gig.comments.all
   end
 
   def new
@@ -19,7 +22,6 @@ class GigsController < ApplicationController
   end
 
   def create
-    @gig = Gig.new(gig_params)
     @gig.user = current_user
 
 
@@ -58,5 +60,17 @@ class GigsController < ApplicationController
 
   private def gig_params
     params.require(:gig).permit(:name, :location, :date, :description, :image, :user_id)
+  end
+
+  private def load_gig
+    if params[:id].present?
+      @gig = Gig.find(params[:id])
+    else
+      @gig = Gig.new
+    end
+
+    if params[:gig].present?
+      @gig.assign_attributes(gig_params)
+    end
   end
 end
