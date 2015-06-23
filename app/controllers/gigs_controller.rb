@@ -1,13 +1,21 @@
 class GigsController < ApplicationController
-  before_filter :load_gig, except: [:index]
-  skip_before_action :require_login, only: [:index, :show]
-  load_and_authorize_resource
-  skip_authorization_check :only => [:index, :show]
-  skip_load_and_authorize_resource :only => [:index, :show]
+  skipped_actions = [:index, :show] | Gig.valid_timelines
+  
+  skip_before_action :require_login, only: skipped_actions
+  skip_authorization_check :only => skipped_actions
+  load_and_authorize_resource except: skipped_actions
 
 
   def index
-    @gigs = Gig.all
+    @gigs = Gig.upcoming
+  end
+
+  Gig.valid_timelines.each do |timeline|
+    define_method timeline do
+      @gigs = Gig.public_send(timeline)
+
+      render 'index'
+    end
   end
 
   def show

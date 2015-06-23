@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   resource :user_session, only: [:new, :create, :destroy]
   resources :comments
   resources :gigs do
+    collection do
+      Gig.valid_timelines.each do |timeline|
+        get timeline
+      end
+    end
+
     resources :comments
   end
   resources :users do
