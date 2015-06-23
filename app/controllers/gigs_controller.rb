@@ -1,9 +1,9 @@
 class GigsController < ApplicationController
   skipped_actions = [:index, :show] | Gig.valid_timelines
-  
+
   skip_before_action :require_login, only: skipped_actions
   skip_authorization_check :only => skipped_actions
-  load_and_authorize_resource except: skipped_actions
+  load_and_authorize_resource except: [:index]
 
 
   def index
