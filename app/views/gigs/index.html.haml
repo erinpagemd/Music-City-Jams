@@ -1,12 +1,23 @@
-.containr-fluid.gigs-index
+.container-fluid.gigs-index
   .gigs-index-title
     .gigs-title-text
       %h1 All the Gigs
 
-  .gigs-all.container-fluid
+  .gigs-index-filters
+    .row
+      .col-md-3
+        =link_to "All Shows", gigs_path(), class: 'btn btn-default'
+      .col-md-3
+        =link_to "Past Shows", past_gigs_path, class: 'btn btn-warning'
+      .col-md-3
+        =link_to "Today's Shows", today_gigs_path, class: 'btn btn-info'
+      .col-md-3
+        =link_to "Upcoming Shows", upcoming_gigs_path, class: 'btn btn-success'
+
+  .container-fluid.gigs-all
     .row
       .col-md-1
-      .col-md-10
+      .col-lg-10
         - @gigs.each do |gig|
           .col-md-4
             .gigs-each

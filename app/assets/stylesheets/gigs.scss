@@ -7,6 +7,18 @@
 .gigs-index {
   text-align: center;
   background-color: lightgrey;
+
+  .gigs-index-filters {
+
+    margin: 2% 0;
+
+    .btn {
+      width: 100%;
+      padding: 4% 0;
+    }
+
+  }
+
   .gigs-index-title {
     margin: 2% 0;
     background-image: url('equipment.png');
@@ -27,8 +39,8 @@
 
   .gigs-each {
     background-color: white;
-    width: 400px;
-    height: 400px;
+    width: 100%;
+    min-height: 450px;
     margin: 3%;
   }
 
