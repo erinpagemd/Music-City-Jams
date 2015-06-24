@@ -29,8 +29,13 @@
 
   }
 
-  .gigs-image {
+  .gigs-each-image {
     background-color: darkgrey;
+  }
+
+  .gigs-each-location {
+
+
   }
 
   .gigs-title-text {
@@ -44,12 +49,15 @@
     margin: 3%;
   }
 
+  .gigs-each-name {
+    padding: 2%;
+  }
+
   .gigs-each-header {
     background-color: black;
     color: white;
-    height: 50px;
     text-align: right;
-    padding: 1%;
+    padding: 2%;
   }
 
   img {

@@ -22,14 +22,15 @@
               .gigs-each
                 .gigs-each-header
                   %h3= gig.date.to_s(:long)
-                .row
+                .gigs-each-name
                   %h2= gig.name
-                .gigs-image
+                .gigs-each-image
                   .row
                     .col-md-6
                       %img(src="#{gig.image}")
                     .col-md-6
-                      %h3= gig.location
+                      .gigs-each-location
+                        %h3= gig.location
                 .gigs-text
                   %h2= gig.user.name
       .col-md-1
