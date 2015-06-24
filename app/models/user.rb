@@ -22,15 +22,4 @@ class User < ActiveRecord::Base
     end
   end
 
-  protected
-
-  # def method_missing(method_name, *args, &block)
-  #   if method_name.match(/(.*)\?/)
-  #     if ROLES.include?($1)
-  #       return role == $1
-  #     end
-  #   end
-  #
-  #   super
-  # end
 end

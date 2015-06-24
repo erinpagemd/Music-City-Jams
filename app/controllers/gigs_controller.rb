@@ -25,14 +25,6 @@ class GigsController < ApplicationController
     render 'index'
   end
 
-  # Gig.valid_timelines.each do |timeline|
-  #   define_method timeline do
-  #     @gigs = Gig.public_send(timeline)
-  #
-  #     render 'index'
-  #   end
-  # end
-
   def show
     @comments = @gig.comments.all
   end
