@@ -44,10 +44,8 @@ class GigsController < ApplicationController
     respond_to do |format|
       if @gig.save
         format.html { redirect_to @gig, notice: 'Gig was successfully created.' }
-        format.json { render :show, status: :created, location: @gig }
       else
         format.html { render :new }
-        format.json { render json: @gig.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -63,7 +61,7 @@ class GigsController < ApplicationController
   end
 
   def destroy
-    @comments = Gig.where(:gig_id => @gig.id)
+    @comments = @gig.comments
     @comments.each do |comment|
       comment.destroy
     end
