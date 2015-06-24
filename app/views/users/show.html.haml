@@ -16,8 +16,10 @@
       |
       = link_to 'All Shows', gigs_path
 
+  - if !logged_in?
+    %h2 log in to see information
 
-  - if @user == current_user && @user.role == 'band'
+  - if current_user && @user.role == 'band'
     .row
       - if @gigs.empty?
         %h2 Add a show
@@ -39,9 +41,12 @@
               = link_to "Find out more", gig, class: 'btn btn-primary'
       .col-md-2
 
-  - if @user == current_user && @user.role == 'fan'
+  - if current_user && @user.role == 'fan'
     .row
-      %h2 my comments
+      - if @user.comments.empty?
+        %h2 no comments yet
+      - else
+        %h2 my comments
     .row
       .col-md-2
       .col-md-8
