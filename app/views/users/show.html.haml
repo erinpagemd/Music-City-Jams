@@ -24,7 +24,7 @@
       - if @gigs.empty? && current_user == @user
         %h2 Add a show
       - elsif @gigs.empty? && current_user != @user
-        %h2= "#{@user.name} has not added any shows yet."
+        %h2= "#{@user.name} has not added anything yet."
       - else
         %h2 my shows
     .row
