@@ -56,19 +56,20 @@ class GigsController < ApplicationController
     respond_to do |format|
       if @gig.update(gig_params)
         format.html { redirect_to @gig, notice: 'Gig was successfully updated.' }
-        format.json { render :show, status: :ok, location: @gig }
       else
         format.html { render :edit }
-        format.json { render json: @gig.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
+    @comments = Gig.find_by_gig_id(@gig.id)
+    @comments.each do |comment|
+      comment.destroy
+    end
     @gig.destroy
     respond_to do |format|
       format.html { redirect_to gigs_url, notice: 'Gig was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
