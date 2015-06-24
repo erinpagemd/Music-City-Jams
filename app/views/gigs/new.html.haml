@@ -4,7 +4,18 @@
   .row
     .col-md-3
     .col-md-6
-      = render 'form'
+      .container-fluid.gig-form
+        = simple_form_for @gig do |f|
+          = f.error_notification
+          .row.form-row
+            .form-inputs
+              = f.input :name
+              = f.input :location
+              = f.input :date
+              = f.input :description
+              = f.input :image, label: "Upload an image"
+            .form-actions
+              = f.button :submit, class: 'btn btn-large btn-primary'
     .col-md-3
   .row
     = link_to 'Back', gigs_path
