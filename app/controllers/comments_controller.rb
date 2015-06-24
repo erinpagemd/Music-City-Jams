@@ -3,21 +3,6 @@ class CommentsController < ApplicationController
   before_action :require_login, except: [:index, :show]
   load_and_authorize_resource
 
-
-  def index
-    @comments = Comment.all
-  end
-
-  def show
-  end
-
-  def new
-    @comment = Comment.new
-  end
-
-  def edit
-  end
-
   def create
     @gig = Gig.find(params[:gig_id])
     @comment = Comment.new(comment_params)
@@ -32,22 +17,10 @@ class CommentsController < ApplicationController
     end
   end
 
-  def update
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @comment }
-      else
-        format.html { render :edit }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to user_path(@comment.user), notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
