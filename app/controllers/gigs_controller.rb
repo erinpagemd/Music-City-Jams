@@ -3,7 +3,7 @@ class GigsController < ApplicationController
 
   skip_before_action :require_login, only: skipped_actions
   skip_authorization_check :only => skipped_actions
-  load_and_authorize_resource except: [:index, :today, :past, :upcoming]
+  load_and_authorize_resource except: [:index, :today, :past, :upcoming, :show]
 
 
   def index
@@ -26,6 +26,7 @@ class GigsController < ApplicationController
   end
 
   def show
+    load_gig
     @comments = @gig.comments.all
   end
 

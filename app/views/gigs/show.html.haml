@@ -10,7 +10,10 @@
       |
     = link_to 'View All Gigs', gigs_path
     |
-    = link_to 'More about this band', user_path(@gig.user)
+    - if @gig.user == current_user && @gig.user.role == 'band'
+      = link_to 'My band page', user_path(@gig.user)
+    - else
+      = link_to 'More about that band', user_path(@gig.user)
 
   .row.gig-info
     .col-md-4
