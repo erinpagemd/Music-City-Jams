@@ -1,8 +1,6 @@
 Fabricator(:user) do
-  name             "MyString"
-  email            "MyString"
-  crypted_password "MyString"
-  salt             "MyString"
-  slug             "MyString"
-  role             "MyString"
+  name             {Faker::Name.name}
+  email            {Faker::Internet.email}
+  password                      "password1"
+  password_confirmation         "password1"
 end
