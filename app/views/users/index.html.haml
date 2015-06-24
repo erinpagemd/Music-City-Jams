@@ -2,7 +2,8 @@
   .users-index-title
     .users-title-text
       %h1 Music City Bands
-      = link_to 'Sign Up Your Band', new_user_path
+      - if !logged_in?
+        = link_to 'Sign Up Your Band', new_user_path
 
 
   .users-all.container-fluid
