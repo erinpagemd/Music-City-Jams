@@ -37,29 +37,23 @@ class UsersController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @user.update(user_params)
+      redirect_to @user, notice: 'User was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def destroy
     @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to users_url, notice: 'User was successfully destroyed.'
   end
 
-  private
-    def set_user
-      @user = User.friendly.find(params[:id])
-    end
+  private def set_user
+    @user = User.friendly.find(params[:id])
+  end
 
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :role)
-    end
+  private def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :role)
+  end
 end
