@@ -18,21 +18,18 @@
       .col-lg-10
         - @gigs.each do |gig|
           .col-md-4
-            .gigs-each
-              .gigs-each-header
-                %h3= gig.date.to_s(:long)
-              .row
-                %h2= gig.name
-              .gigs-image
+            = link_to gig do
+              .gigs-each
+                .gigs-each-header
+                  %h3= gig.date.to_s(:long)
                 .row
-                  .col-md-6
-                    %img(src="#{gig.image}")
-                  .col-md-6
-                    %h3= gig.location
-
-              .gigs-text
-                %h2= gig.user.name
-              .row
-                = link_to "Find out more", gig,  class: 'btn btn-info gigs-each-btn'
-
+                  %h2= gig.name
+                .gigs-image
+                  .row
+                    .col-md-6
+                      %img(src="#{gig.image}")
+                    .col-md-6
+                      %h3= gig.location
+                .gigs-text
+                  %h2= gig.user.name
       .col-md-1
