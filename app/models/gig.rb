@@ -1,4 +1,7 @@
 class Gig < ActiveRecord::Base
+
+  mount_uploader :image, ImageUploader
+
   belongs_to :user
   extend FriendlyId
 
@@ -21,16 +24,4 @@ class Gig < ActiveRecord::Base
   def self.valid_timelines
     VALID_TIMELINES.keys
   end
-
-  # class << self
-  #   def valid_timelines
-  #     VALID_TIMELINES.keys
-  #   end
-  #
-  #   VALID_TIMELINES.each do |timeline, predicate|
-  #     define_method timeline do
-  #       where(predicate, Date.today).order('date')
-  #     end
-  #   end
-  # end
 end
