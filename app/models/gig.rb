@@ -1,5 +1,7 @@
 class Gig < ActiveRecord::Base
 
+  validates :user, :name, presence: true
+
   mount_uploader :image, ImageUploader
 
   belongs_to :user
