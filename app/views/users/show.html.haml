@@ -17,22 +17,24 @@
       = link_to 'All Shows', gigs_path
 
 
-
-  .row
-    .col-md-2
-    .col-md-8
-      - @gigs.each do |gig|
-        .each-gig
-          .col-md-10
-            .col-md-4
-              .row
-                %img(src="#{gig.image}")
-            .col-md-8.gig-text
-              %h2= gig.name
-              %p= gig.date.to_s(:long)
-          .col-md-2
-            = link_to "Find out more", gig, class: 'btn btn-primary'
-    .col-md-2
+  - if @user == current_user && @user.role == 'band'
+    .row
+      %h2 my shows
+    .row
+      .col-md-2
+      .col-md-8
+        - @gigs.each do |gig|
+          .each-gig
+            .col-md-10
+              .col-md-4
+                .row
+                  %img(src="#{gig.image}")
+              .col-md-8.gig-text
+                %h2= gig.name
+                %p= gig.date.to_s(:long)
+            .col-md-2
+              = link_to "Find out more", gig, class: 'btn btn-primary'
+      .col-md-2
 
   - if @user == current_user && @user.role == 'fan'
     .row
