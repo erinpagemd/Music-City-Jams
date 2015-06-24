@@ -7,7 +7,7 @@ class GigsController < ApplicationController
 
 
   def index
-    @gigs = Gig.all
+    @gigs = Gig.all.order(:date)
   end
 
   def today
@@ -16,12 +16,12 @@ class GigsController < ApplicationController
   end
 
   def past
-    @gigs = Gig.where('date < ?', Date.today)
+    @gigs = Gig.where('date < ?', Date.today).order(:date)
     render 'index'
   end
 
   def upcoming
-    @gigs = Gig.where('date >= ?', Date.today)
+    @gigs = Gig.where('date >= ?', Date.today).order(:date)
     render 'index'
   end
 
