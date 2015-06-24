@@ -63,7 +63,7 @@ class GigsController < ApplicationController
   end
 
   def destroy
-    @comments = Gig.find_by_gig_id(@gig.id)
+    @comments = Gig.where(:gig_id => @gig.id)
     @comments.each do |comment|
       comment.destroy
     end
