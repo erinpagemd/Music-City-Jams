@@ -5,14 +5,12 @@
       - if !logged_in?
         = link_to 'Sign Up Your Band', new_user_path
 
-
   .users-all.container-fluid
     .col-md-1
     .col-md-10
       - @users.each do |user|
         .col-md-4
           .users-each
-            %h2= user.name
-            .row
-            = link_to "Find out more about this band", user, class: 'btn btn-warning'
+            = link_to user do
+              %h2= user.name
     .col-md-1
