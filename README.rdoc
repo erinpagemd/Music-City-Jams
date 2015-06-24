@@ -1,4 +1,26 @@
-== README
+== Music City Jams
+
+NSS Cohort 8 Final Project
+Small Band Event site with friendly urls, 2 user roles, AWS S3 image uploads, comments.
+
+=== Project Setup
+
+* Ruby Version: 2.2.2
+* System Dependencies: Postgresql
+
+==== First Time
+1. bundle
+2. Run rake db:create:all
+3. Run rake db:migrate
+4. rake
+5. put in amazon s3 credentials
+6. rails s
+
+==== Other times
+1. git pull
+2. rake db:migrate
+3. rails s
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
