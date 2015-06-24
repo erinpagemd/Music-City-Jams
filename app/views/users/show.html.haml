@@ -19,7 +19,10 @@
 
   - if @user == current_user && @user.role == 'band'
     .row
-      %h2 my shows
+      - if @gigs.empty?
+        %h2 Add a show
+      - else
+        %h2 my shows
     .row
       .col-md-2
       .col-md-8
