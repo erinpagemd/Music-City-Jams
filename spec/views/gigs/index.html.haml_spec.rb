@@ -17,12 +17,4 @@ RSpec.describe "gigs/index", type: :view do
       )
     ])
   end
-
-  it "renders a list of gigs" do
-    render
-    assert_select "tr>td", :text => "Name".to_s, :count => 2
-    assert_select "tr>td", :text => "Location".to_s, :count => 2
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
-    assert_select "tr>td", :text => "Image".to_s, :count => 2
-  end
 end
