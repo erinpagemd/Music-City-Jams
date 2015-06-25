@@ -39,24 +39,18 @@ class GigsController < ApplicationController
 
   def create
     @gig.user = current_user
-
-
-    respond_to do |format|
-      if @gig.save
-        format.html { redirect_to @gig, notice: 'Gig was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if @gig.save
+      redirect_to @gig, notice: 'Gig was successfully created.'
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @gig.update(gig_params)
-        format.html { redirect_to @gig, notice: 'Gig was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @gig.update(gig_params)
+      redirect_to @gig, notice: 'Gig was successfully updated.'
+    else
+      render :edit
     end
   end
 
