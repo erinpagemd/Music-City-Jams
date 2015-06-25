@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:update, :destroy]
   before_action :require_login, except: [:index, :show]
   load_and_authorize_resource
 
@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     @comment.gig = @gig
 
     if @comment.save
-      redirect_to user_gig_path(@gig.user, @gig)
+      redirect_to user_gig_path(@gig.user, @gig), notice: "Your comment has been saved"
     else
       flash.alert = "Your comment could not be published. Please correct the errors below."
       render "gigs/show"
@@ -20,18 +20,15 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to user_path(@comment.user), notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
+      redirect_to user_path(@comment.user), notice: 'Comment was successfully destroyed.'
     end
   end
 
-  private
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
+  private def set_comment
+    @comment = Comment.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def comment_params
-      params.require(:comment).permit(:reference, :reference, :body)
-    end
+  private def comment_params
+    params.require(:comment).permit(:reference, :reference, :body)
+  end
 end

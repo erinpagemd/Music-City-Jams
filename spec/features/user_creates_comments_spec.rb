@@ -24,4 +24,17 @@ RSpec.feature "UserCreatesComments", type: :feature do
     page.should have_css("h3", text: "With lots of love")
   end
 
+  scenario "sad path" do
+    some_user = Fabricate(:user)
+    signin_as some_user
+    click_on "All Shows"
+    page.should have_content("How does my garden grow?")
+    click_on "How does my garden grow?"
+    page.should have_css("h1", text: "How does my garden grow?")
+    page.should have_css("h3", text: "Be the first to comment")
+    fill_in "comment_body", with: ""
+    click_on "Publish Comment"
+    page.should have_css("p", "Your comment could not be published")
+  end
+
 end
