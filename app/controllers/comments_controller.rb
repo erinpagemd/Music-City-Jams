@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:update, :destroy]
   before_action :require_login, except: [:index, :show]
   load_and_authorize_resource
 
@@ -18,6 +17,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    set_comment
     @comment.destroy
     respond_to do |format|
       redirect_to user_path(@comment.user), notice: 'Comment was successfully destroyed.'
