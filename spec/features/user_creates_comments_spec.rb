@@ -11,7 +11,7 @@ RSpec.feature "UserCreatesComments", type: :feature do
 
   scenario "happy path" do
     some_user = Fabricate(:user)
-    login_user some_user
+    signin_as some_user
   end
 
 end
