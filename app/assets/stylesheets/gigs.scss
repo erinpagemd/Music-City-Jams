@@ -21,7 +21,7 @@
 
   .gigs-index-title {
     margin: 2% 0;
-    background-image: url('equipment.png');
+    background-image: asset-url('equipment.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -75,7 +75,7 @@
 
 /////////////////// NEW ////////////////////
 .gig-new {
-  background-image: url('pedals-nor.jpg');
+  background-image: asset-url('pedals-nor.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
