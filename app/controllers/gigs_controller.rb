@@ -71,11 +71,12 @@ class GigsController < ApplicationController
     end
   end
 
-  private def gig_params
+  private
+  def gig_params
     params.require(:gig).permit(:name, :location, :date, :description, :image, :user_id)
   end
 
-  private def load_gig
+  def load_gig
     if params[:id].present?
       @gig = Gig.find(params[:id])
     else

@@ -22,7 +22,8 @@ class CommentsController < ApplicationController
     redirect_to user_path(@comment.user), notice: 'Comment was successfully destroyed.'
   end
 
-  private def comment_params
+  private
+  def comment_params
     params.require(:comment).permit(:reference, :reference, :body)
   end
 

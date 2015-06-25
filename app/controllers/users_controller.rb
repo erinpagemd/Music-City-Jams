@@ -49,11 +49,12 @@ class UsersController < ApplicationController
     redirect_to users_url, notice: 'User was successfully destroyed.'
   end
 
-  private def set_user
+  private
+  def set_user
     @user = User.friendly.find(params[:id])
   end
 
-  private def user_params
+  def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :role)
   end
 end
