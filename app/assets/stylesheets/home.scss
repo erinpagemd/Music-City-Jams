@@ -86,17 +86,17 @@
   }
 
   #sign-up {
-    @include background-image: asset-url('tommies-nor.jpg');
+    background-image: asset-url('tommies-nor.jpg');
     background-position: bottom;
   }
 
   #band-post-show {
-    @include background-image: asset-url('geek-jam-bcn-14.jpg');
+    background-image: asset-url('geek-jam-bcn-14.jpg');
     background-position: center;
   }
 
   #check-band {
-    @include background-image: asset-url('lipscomb-nor.jpg');
+    background-image: asset-url('lipscomb-nor.jpg');
   }
 
   #check-local-band {
