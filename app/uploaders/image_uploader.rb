@@ -2,7 +2,7 @@
 
 class ImageUploader < CarrierWave::Uploader::Base
 
-  include CarrierWave::RMagick
+  include CarrierWave::rmagick
 
   def store_dir
     "development/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
