@@ -17,16 +17,13 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    set_comment
+    @comment = Comment.find(params[:id])
     @comment.destroy
     respond_to do |format|
       redirect_to user_path(@comment.user), notice: 'Comment was successfully destroyed.'
     end
   end
 
-  private def set_comment
-    @comment = Comment.find(params[:id])
-  end
 
   private def comment_params
     params.require(:comment).permit(:reference, :reference, :body)
