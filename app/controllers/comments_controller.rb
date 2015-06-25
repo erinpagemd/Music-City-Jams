@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
-  before_action :require_login, except: [:index, :show]
   load_and_authorize_resource
+  before_action :require_login, except: [:index, :show]
 
   def create
     @gig = Gig.find(params[:gig_id])
-    @comment = Comment.new(params.require(:comment).permit(:body))
+    @comment = Comment.new(comment_params)
     @comment.user = current_user
     @comment.gig = @gig
 
@@ -19,8 +19,11 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    respond_to do |format|
-      redirect_to user_path(@comment.user), notice: 'Comment was successfully destroyed.'
-    end
+    redirect_to user_path(@comment.user), notice: 'Comment was successfully destroyed.'
   end
+
+  private def comment_params
+    params.require(:comment).permit(:reference, :reference, :body)
+  end
+
 end

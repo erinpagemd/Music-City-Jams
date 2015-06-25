@@ -71,8 +71,6 @@ class GigsController < ApplicationController
     end
   end
 
-
-
   private def gig_params
     params.require(:gig).permit(:name, :location, :date, :description, :image, :user_id)
   end
